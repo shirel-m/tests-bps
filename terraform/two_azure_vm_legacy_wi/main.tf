@@ -69,7 +69,7 @@ resource "azurerm_network_interface" "example" {
 
 ## <https://www.terraform.io/docs/providers/azurerm/r/windows_virtual_machine.html>
 resource "azurerm_virtual_machine" "example" {
-  name                = var.vm_name1
+  name                = var.vm1_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   vm_size             = "Standard_F2"
@@ -101,7 +101,7 @@ resource "azurerm_virtual_machine" "example" {
 }
 
 resource "azurerm_virtual_machine" "example2" {
-  name                = var.vm_name2
+  name                = var.vm2_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   vm_size             = "Standard_F2"
