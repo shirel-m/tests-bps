@@ -39,7 +39,7 @@ grains:
       host:
         name: '{{ .inputs.agent }}'
       inputs:
-        - vm_name: '{{.inputs.vm_name}}2'
-        - resource_group: '{{.inputs.resource_group}}'
+        - vm_name: '{{.inputs.vm_name}}'
+        - resource_group: '{{.inputs.resource_group}}vido'
       outputs:
         - vm_id
