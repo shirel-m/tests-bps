@@ -67,6 +67,19 @@ resource "azurerm_network_interface" "example" {
   }
 }
 
+resource "azurerm_network_interface" "example2" {
+  name                = "example-nic"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.example.id
+  }
+}
+
 ## <https://www.terraform.io/docs/providers/azurerm/r/windows_virtual_machine.html>
 resource "azurerm_virtual_machine" "example" {
   name                = var.vm1_name
@@ -107,7 +120,7 @@ resource "azurerm_virtual_machine" "example2" {
   vm_size             = "Standard_F2"
   availability_set_id = azurerm_availability_set.DemoAset.id
   network_interface_ids = [
-    azurerm_network_interface.example.id,
+    azurerm_network_interface.example2.id,
   ]
 
   storage_image_reference {
