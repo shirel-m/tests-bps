@@ -25,8 +25,8 @@ grains:
       host:
         name: '{{ .inputs.agent }}'
       inputs:
-        - vm1_name: '{{.inputs.vm1_name}}'
-        - vm2_name: '{{.inputs.vm2_name}}'
+        - vm1_name: '{{.inputs.vm_name}}1'
+        - vm2_name: '{{.inputs.vm_name}}2'
         - resource_group: '{{.inputs.resource_group}}'
       outputs:
         - vm_id
