@@ -1,0 +1,32 @@
+spec_version: 2
+description: deploy azure vm
+
+inputs:
+  agent:
+    type: execution-host
+  vm_name:
+    type: string
+    default: "vidovm"
+  resource_group:
+    type: string
+    default: "vido_rg5"
+
+outputs:
+  vm1_name:
+    value: '{{.grains.vm1.outputs.vm_id}}'
+
+grains:
+  vm1:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/two_azure_vm_legacy_wi
+      host:
+        name: '{{ .inputs.agent }}'
+      inputs:
+        - vm1_name: '{{.inputs.vm1_name}}'
+        - vm2_name: '{{.inputs.vm2_name}}'
+        - resource_group: '{{.inputs.resource_group}}'
+      outputs:
+        - vm_id
