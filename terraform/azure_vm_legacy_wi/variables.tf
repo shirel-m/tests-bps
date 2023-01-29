@@ -1,7 +1,7 @@
 variable "vm_name" {
   type = string
   default = "vidovm"
-  description = "VM Name"
+  description = "vm Name"
 }
 
 variable "resource_group" {
