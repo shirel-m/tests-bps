@@ -1,6 +1,12 @@
-variable "vm_name" {
+variable "vm1_name" {
   type = string
-  default = "vidovm"
+  default = "vidovm1"
+  description = "vm Name"
+}
+
+variable "vm2_name" {
+  type = string
+  default = "vidovm2"
   description = "vm Name"
 }
 
