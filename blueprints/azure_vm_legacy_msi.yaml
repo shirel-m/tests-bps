@@ -14,7 +14,17 @@ inputs:
     default: "vidovm"
   resource_group:
     type: string
-    default: "vido_rg"
+    default: "vido_rgbbb"
+    
+  subscription_id:
+    type: string
+    display-style: normal
+  tenant_id:
+    type: string
+    display-style: normal
+#   client_id:
+#     type: string
+#     display-style: normal
 
 outputs:
   vm1_name:
@@ -36,3 +46,7 @@ grains:
         - vm_id
       env-vars:
         - ANSIBLE_AZURE_AUTH_SOURCE: '{{ .inputs.azure_auth_source }}'
+        - ARM_USE_MSI: true
+        - ARM_SUBSCRIPTION_ID: '{{ .inputs.subscription_id }}'
+        - ARM_TENANT_ID: '{{ .inputs.tenant_id }}'
+#         - ARM_CLIENT_ID: '{{ .inputs.client_id }}'
