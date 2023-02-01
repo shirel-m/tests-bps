@@ -39,6 +39,9 @@ grains:
         path: terraform/azure_vm_legacy_wi
       host:
         name: '{{ .inputs.agent }}'
+        kubernetes:
+          pod-labels:
+          - aadpodidbinding: my-pod-identity
       inputs:
         - vm_name: '{{.inputs.vm_name}}'
         - resource_group: '{{.inputs.resource_group}}'
