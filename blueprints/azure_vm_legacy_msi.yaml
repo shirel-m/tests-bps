@@ -22,9 +22,9 @@ inputs:
   tenant_id:
     type: string
     display-style: normal
-#   client_id:
-#     type: string
-#     display-style: normal
+  client_id:
+    type: string
+    display-style: normal
 
 outputs:
   vm1_name:
@@ -49,4 +49,4 @@ grains:
         - ARM_USE_MSI: true
         - ARM_SUBSCRIPTION_ID: '{{ .inputs.subscription_id }}'
         - ARM_TENANT_ID: '{{ .inputs.tenant_id }}'
-#         - ARM_CLIENT_ID: '{{ .inputs.client_id }}'
+        - ARM_CLIENT_ID: '{{ .inputs.client_id }}'
