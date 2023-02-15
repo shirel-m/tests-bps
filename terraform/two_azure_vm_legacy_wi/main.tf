@@ -53,9 +53,16 @@ resource "azurerm_public_ip" "example" {
   allocation_method   = "Dynamic"
 }
 
+resource "azurerm_public_ip" "example2" {	
+  name                = "example-public-ip2"	
+  resource_group_name = azurerm_resource_group.rg.name	
+  location            = azurerm_resource_group.rg.location	
+  allocation_method   = "Dynamic"	
+}
+
 ## <https://www.terraform.io/docs/providers/azurerm/r/network_interface.html>
 resource "azurerm_network_interface" "example" {
-  name                = "example-nic"
+  name                = "example-nic1"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -68,7 +75,7 @@ resource "azurerm_network_interface" "example" {
 }
 
 resource "azurerm_network_interface" "example2" {
-  name                = "example-nic"
+  name                = "example-nic2"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -76,7 +83,7 @@ resource "azurerm_network_interface" "example2" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.example.id
+    public_ip_address_id = azurerm_public_ip.example2.id
   }
 }
 
@@ -117,7 +124,7 @@ resource "azurerm_virtual_machine" "example2" {
   name                = var.vm2_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  vm_size             = "Standard_F2"
+  vm_size             = "Standard_DS1_v2"
   availability_set_id = azurerm_availability_set.DemoAset.id
   network_interface_ids = [
     azurerm_network_interface.example2.id,
