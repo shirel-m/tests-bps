@@ -29,4 +29,5 @@ grains:
         - resource_group: '{{.inputs.resource_group}}'
       outputs:
         - vm_id
+      tf-version: 1.3.6
     tf-version: 1.3.6
