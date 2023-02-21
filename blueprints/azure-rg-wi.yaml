@@ -1,0 +1,36 @@
+spec_version: 2
+description: deploy azure vm
+
+inputs:
+  agent:
+    type: execution-host
+  resource_group:
+    type: string
+    default: "vido-rg"
+  subscription_id:
+    type: string
+    display-style: normal
+  tenant_id:
+    type: string
+    display-style: normal
+  client_id:
+    type: string
+    display-style: normal
+
+grains:
+  vm1:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/azure_rg
+      host:
+        name: '{{ .inputs.agent }}'
+      inputs:
+        - resource_group: '{{.inputs.resource_group}}'
+      env-vars: 
+        - ARM_SUBSCRIPTION_ID: '{{ .inputs.subscription_id }}'
+        - ARM_TENANT_ID: '{{ .inputs.tenant_id }}'
+        - ARM_CLIENT_ID: '{{ .inputs.client_id }}'
+        - ARM_USE_OIDC: true
+        - ARM_OIDC_TOKEN_FILE_PATH: /var/run/secrets/azure/tokens/azure-identity-token
