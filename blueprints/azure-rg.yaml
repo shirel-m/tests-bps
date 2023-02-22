@@ -19,3 +19,5 @@ grains:
         name: '{{ .inputs.agent }}'
       inputs:
         - resource_group: '{{.inputs.resource_group}}'
+      env-vars:
+        - AZURE_SUBSCRIPTION_ID: '24aae708-4612-497c-a91e-7ec5c657f9db'
