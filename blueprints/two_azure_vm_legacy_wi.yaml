@@ -40,6 +40,6 @@ grains:
         name: '{{ .inputs.agent }}'
       inputs:
         - vm_name: '{{.inputs.vm_name}}-vido'
-        - resource_group: '{{.inputs.resource_group}}'
+        - resource_group: '{{.inputs.resource_group}}-vido'
       outputs:
         - vm_id
