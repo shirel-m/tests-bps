@@ -6,10 +6,10 @@ inputs:
     type: execution-host
   vm_name:
     type: string
-    default: "vidovm"
+    default: "test-vidovm"
   resource_group:
     type: string
-    default: "vido_rg1"
+    default: "vido_rg80"
 
 outputs:
   vm1_name:
@@ -39,7 +39,7 @@ grains:
       host:
         name: '{{ .inputs.agent }}'
       inputs:
-        - vm_name: '{{.inputs.vm_name}}'
-        - resource_group: '{{.inputs.resource_group}}vido'
+        - vm_name: '{{.inputs.vm_name}}-vido'
+        - resource_group: '{{.inputs.resource_group}}'
       outputs:
         - vm_id
