@@ -23,5 +23,6 @@ grains:
 #         - aws_s3_bucket_object
       inputs:
         - BUCKET_NAME: '{{.params.bucket_name}}'
-        - SANDBOX_ID: 'vido-{{sandboxid}}'
+        - SANDBOX_ID: 'vido-{{ sandboxid }}'
         - CONTENT: '{{.inputs.content}}'
+        - DUMMY: Vido dummy
