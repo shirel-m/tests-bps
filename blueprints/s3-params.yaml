@@ -23,5 +23,5 @@ grains:
 #         - aws_s3_bucket_object
       inputs:
         - BUCKET_NAME: '{{.params.bucket_name}}'
-        - SANDBOX_ID: '{{sandboxId}}'
+        - SANDBOX_ID: '{{sandboxid}}'
         - CONTENT: '{{.inputs.content}}'
