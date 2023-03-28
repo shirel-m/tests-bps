@@ -41,6 +41,9 @@ grains:
         - qualix_ip: '{{ .params.default_qualix_ip }}'
         - connection_protocol: ssh
         - connection_port: 22
+        - hostname: vido
+        - username: vido
+        - password: vido
       outputs:
       - qualix_link
       - vsphere_virtual_machine_default_ip_address
