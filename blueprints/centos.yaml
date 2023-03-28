@@ -1,0 +1,42 @@
+spec_version: 2
+
+description: Environment with a clean CentOS Linux VM
+outputs:
+  QualiX SSH Link:
+    value: '{{ .grains.Centos.outputs.qualix_link }}'
+    kind: link
+  VM IP:
+    value: '{{ .grains.Centos.outputs.vsphere_virtual_machine_default_ip_address }}'
+  VM Name:
+    value: '{{ .grains.Centos.outputs.vsphere_virtual_machine_name }}'
+  OS Login:
+    value: root
+  Os Password:
+    value: qs1234
+grains:
+  Centos:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/centos-fake
+      agent:
+        name: vcenter3
+      inputs:
+        - virtual_machine_template_name: Do-Template-Centos
+        - virtual_machine_name: 'DO-Torque-VM-{{ sandboxid }}'
+        - datacenter_name: IL Datacenter
+        - datastore_name: vmfs02-Do-Reservation
+        # - compute_cluster_name: "IL Main Cluster\esxi-01.qualisystems.local"
+        - networks: LAB/Do.(85)
+        - wait_for_ip: 120
+        - wait_for_net: 120
+        - VM_username: root
+        - VM_password: qs1234
+        - qualix_ip: '{{ .params.default_qualix_ip }}'
+        - connection_protocol: ssh
+        - connection_port: 22
+      outputs:
+      - qualix_link
+      - vsphere_virtual_machine_default_ip_address
+      - vsphere_virtual_machine_name
