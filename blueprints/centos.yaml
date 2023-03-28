@@ -1,6 +1,11 @@
 spec_version: 2
 
 description: Environment with a clean CentOS Linux VM
+
+inputs:
+  agent:
+    type: execution-host
+
 outputs:
   QualiX SSH Link:
     value: '{{ .grains.Centos.outputs.qualix_link }}'
@@ -21,7 +26,7 @@ grains:
         store: bps
         path: terraform/centos-fake
       agent:
-        name: vcenter3
+        name: {{ .inputs.agent }}
       inputs:
         - virtual_machine_template_name: Do-Template-Centos
         - virtual_machine_name: 'DO-Torque-VM-{{ sandboxid }}'
