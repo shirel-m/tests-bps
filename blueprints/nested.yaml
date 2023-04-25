@@ -5,7 +5,7 @@ inputs:
     display-style: normal
     default: "webapp-bucket-vid"
   host:
-    type: execution-host
+    type: agent
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
   endpoint:

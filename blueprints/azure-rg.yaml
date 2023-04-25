@@ -3,7 +3,7 @@ description: deploy azure vm
 
 inputs:
   agent:
-    type: execution-host
+    type: agent
   resource_group:
     type: string
     default: "vido-rg"

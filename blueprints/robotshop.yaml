@@ -4,7 +4,7 @@ description: Robotshot microservices application deployed on K8S with Helm and R
 
 inputs:
   host:
-    type: execution-host
+    type: agent
  
   version:
     type: string

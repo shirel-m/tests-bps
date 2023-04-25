@@ -3,7 +3,7 @@ description: description text
 
 inputs:
   agent:
-    type: execution-host
+    type: agent
 
 outputs:
   public_ip:

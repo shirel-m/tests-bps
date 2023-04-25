@@ -3,7 +3,7 @@ description: rds
 
 inputs:  
   host:
-    type: execution-host
+    type: agent
 
 
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict

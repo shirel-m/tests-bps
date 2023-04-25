@@ -3,7 +3,7 @@ description: deploy azure vm
 
 inputs:
   agent:
-    type: execution-host
+    type: agent
   vm_name:
     type: string
     default: "test-vidovm"

@@ -3,7 +3,7 @@ description: Blueprint for nginx helm chart
 
 inputs:
   host_name:
-    type: execution-host
+    type: agent
 
 grains:
   nginx:
