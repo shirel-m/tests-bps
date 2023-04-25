@@ -12,7 +12,7 @@ grains:
       source:
         store: assets
         path: helm/nginx
-      host:
+      agent:
         name: '{{ .inputs.host_name }}'
       commands:
         - dep up bitnami/nginx

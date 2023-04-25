@@ -16,8 +16,8 @@ grains:
     spec:
       source:
         path: github.com/johnathanvidu/prod-tests/terraform/github-branch
-      host:
-        compute-service: '{{.inputs.compute_service_name}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
       inputs:
         - token: '{{.params.github_token}}'
         - repo: '{{.inputs.repo}}'

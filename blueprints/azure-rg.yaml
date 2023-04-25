@@ -15,7 +15,7 @@ grains:
       source:
         store: bps
         path: terraform/azure_rg
-      host:
+      agent:
         name: '{{ .inputs.agent }}'
       inputs:
         - resource_group: '{{.inputs.resource_group}}'

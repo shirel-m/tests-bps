@@ -17,7 +17,7 @@ grains:
       source:
         store: assets
         path: assets/terraform/input-as-output
-      host:
+      agent:
         name: '{{.inputs.agent}}'
       inputs:
         - inpt: '{{.params.{{ .inputs.repo }} }}'

@@ -22,7 +22,7 @@ grains:
       source:
         store: bps
         path: terraform/two_azure_vm_legacy_wi
-      host:
+      agent:
         name: '{{ .inputs.agent }}'
       inputs:
         - vm1_name: '{{.inputs.vm_name}}1'

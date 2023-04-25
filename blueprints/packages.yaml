@@ -3,10 +3,6 @@ spec_version: 2-preview
 description: simple packages check
 
 inputs:
-  cloud_account:
-    type: string
-    default: "aws"
-    display-style: normal
   compute_service_name:
     type: string
     default: "eks"
@@ -22,9 +18,8 @@ grains:
     spec:
       source:
         path: github.com/johnathanvidu/prod-tests.git//terraform/packages/kubectl
-      host:
-        cloud-account: '{{.inputs.cloud_account}}'
-        compute-service: '{{.inputs.compute_service_name}}'
+      agent:
+        name: '{{.inputs.compute_service_name}}'
         service-account: '{{.inputs.service_account}}'
       inputs:
         - SANDBOX_ID: '{{sandboxId}}'

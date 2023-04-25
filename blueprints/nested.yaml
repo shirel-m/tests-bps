@@ -4,7 +4,7 @@ inputs:
   name:
     display-style: normal
     default: "webapp-bucket-vid"
-  host:
+  agent:
     type: agent
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
@@ -19,10 +19,10 @@ grains:
       source:
         store: bps
         path: blueprints
-      host:
-        name: '{{ .inputs.host }}'
+      agent:
+        name: '{{ .inputs.agent }}'
       inputs:
-      - host: '{{ .inputs.host }}'
+      - host: '{{ .inputs.agent }}'
       - name: '{{ .inputs.name }}'
       - prefix: 'vidole'
       - region: 'us-east-1'

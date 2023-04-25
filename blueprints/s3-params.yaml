@@ -15,7 +15,7 @@ grains:
     spec:
       source:
         path: github.com/QualiNext/terraform/s3-write
-      host:
+      agent:
         name: '{{.inputs.compute_service_name}}'
       tags:
 #         auto-tag: true

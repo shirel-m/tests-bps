@@ -10,7 +10,7 @@ inputs:
   region:
     display-style: normal
     default: "us-west-1"
-  host:
+  agent:
     type: agent
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
@@ -24,7 +24,7 @@ grains:
       source:
         store: assets
         path: assets/terraform/s3-webapp
-      host:
+      agent:
         name: '{{ .inputs.host }}'
       inputs:
       - name: '{{ .inputs.name }}'

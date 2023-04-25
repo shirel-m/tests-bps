@@ -20,7 +20,7 @@ inputs:
   AWS_SESSION_TOKEN:
     type: string
     
-  host:
+  agent:
     type: agent
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
@@ -34,7 +34,7 @@ grains:
       source:
         store: assets
         path: assets/terraform/s3-webapp
-      host:
+      agent:
         name: '{{ .inputs.host }}'
       env-vars: 
       - AWS_ACCESS_KEY: '{{ .inputs.AWS_ACCESS_KEY }}'

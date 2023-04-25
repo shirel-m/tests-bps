@@ -40,7 +40,7 @@ grains:
     spec:
       source:
         path: github.com/johnathanvidu/prod-tests.git//terraform/rds
-      host:
+      agent:
         name: '{{.inputs.host}}'
       inputs:
         - sandbox_id: '{{ sandboxid | downcase }}'
@@ -61,7 +61,7 @@ grains:
     spec: 
       source:
         path: github.com/johnathanvidu/prod-tests.git//terraform/s3
-      host:
+      agent:
         name: '{{.inputs.host}}'
       inputs:
         - region: eu-west-1
@@ -76,7 +76,7 @@ grains:
     spec:
       source:
         path: https://github.com/QualiSystemsLab/Torque-Project-Pivot.git//robotShop
-      host:
+      agent:
         name: '{{.inputs.host}}'
       # commands:
       #   - "dep up xxx"

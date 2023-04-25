@@ -2,7 +2,7 @@ spec_version: 2
 description: rds
 
 inputs:  
-  host:
+  agent:
     type: agent
 
 
@@ -18,7 +18,7 @@ grains:
       sources:
         - store: assets
           path: k8s/crossplane/rds.yaml
-      host:
+      agent:
         name: '{{ .inputs.host }}' 
       scripts:
         post-kubernetes-install:

@@ -18,7 +18,7 @@ grains:
       source:
         path: terraform/create-ec2-instance
         store: test-spec2-public
-      host:
+      agent:
         name: '{{.inputs.agent}}'
       outputs:
         - public_ip

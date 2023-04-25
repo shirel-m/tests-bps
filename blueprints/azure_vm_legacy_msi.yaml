@@ -37,7 +37,7 @@ grains:
       source:
         store: bps
         path: terraform/azure_vm_legacy_wi
-      host:
+      agent:
         name: '{{ .inputs.agent }}'
         kubernetes:
           pod-labels:
