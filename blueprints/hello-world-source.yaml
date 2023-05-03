@@ -1,0 +1,14 @@
+spec_version: 2
+description: hello world that tests that terraforms source property works
+inputs:
+  agent:
+    type: agent
+grains:
+  helloworld:
+    kind: terraform
+    spec:
+      source:
+        store: assets
+        path: assets/terraform/hello-world-source
+      agent:
+        name: '{{ .inputs.host }}'
