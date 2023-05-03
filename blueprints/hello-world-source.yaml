@@ -11,4 +11,4 @@ grains:
         store: bps
         path: assets/terraform/hello-world-source
       agent:
-        name: '{{ .inputs.host }}'
+        name: '{{ .inputs.agent }}'
