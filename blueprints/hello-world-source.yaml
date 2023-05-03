@@ -8,7 +8,7 @@ grains:
     kind: terraform
     spec:
       source:
-        store: assets
+        store: bps
         path: assets/terraform/hello-world-source
       agent:
         name: '{{ .inputs.host }}'
