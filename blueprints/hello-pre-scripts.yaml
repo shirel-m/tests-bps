@@ -1,0 +1,26 @@
+spec_version: 2
+
+inputs:
+  agent:
+    type: agent
+
+grains:
+  helloTF:
+    kind: terraform
+    spec:
+      source:
+        path: terraform/hello-world
+        store: bps
+      agent:
+        name: '{{.inputs.agent}}'
+      scripts: 
+        pre-tf-init:
+          source:
+            store: bps
+            path : scripts/preinit.sh
+          arguments: "value"
+        pre-tf-destroy:
+          source:
+            store: bps
+            path : scripts/predestroy.sh
+          arguments: "value"  
