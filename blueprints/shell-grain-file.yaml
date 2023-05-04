@@ -1,0 +1,25 @@
+spec_version: 2
+description: testing sandbox...
+
+inputs:
+  agent:
+    type: agent
+    
+grains:
+  setup:
+    kind: shell
+    spec: 
+      agent:
+        name: '{{ .inputs.agent }}'
+      files:
+        - path: scripts/preinit.sh
+          source: bps
+      activities:
+        deploy:
+          commands:
+            - "echo setup script is running..."
+            - "./preinit.sh"
+        destroy:
+          commands:
+            - "echo destroy activity..."
+            - "./preinit.sh"
