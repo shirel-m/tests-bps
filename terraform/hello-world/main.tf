@@ -5,9 +5,9 @@ terraform {
   required_version = ">= 0.12.26"
 }
 
-resource "time_sleep" "wait_30_seconds" {
-  create_duration = "120s"
-}
+# resource "time_sleep" "wait_30_seconds" {
+#   create_duration = "120s"
+# }
 
 # website::tag::1:: The simplest possible Terraform module: it just outputs "Hello, World!"
 output "hello_world" {
