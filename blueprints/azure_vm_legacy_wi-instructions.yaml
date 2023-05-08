@@ -1,0 +1,38 @@
+spec_version: 2
+description: deploy azure vm
+
+instructions:
+  source:
+    store: bps
+    path: instructions/cool.md
+
+inputs:
+  agent:
+    type: agent
+  vm_name:
+    type: string
+    default: "vidovm"
+  resource_group:
+    type: string
+    default: "vido_rg"
+
+outputs:
+  vm1_name:
+    value: '{{.grains.vm1.outputs.vm_id}}'
+
+grains:
+  vm1:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/azure_vm_legacy_wi
+      agent:
+        name: '{{ .inputs.agent }}'
+      inputs:
+        - vm_name: '{{.inputs.vm_name}}'
+        - resource_group: '{{.inputs.resource_group}}'
+      outputs:
+        - vm_id
+      tf-version: 1.3.6
+    tf-version: 1.3.6
