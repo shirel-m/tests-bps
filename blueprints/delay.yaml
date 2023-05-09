@@ -9,7 +9,6 @@ grains:
     kind: terraform
     spec:
       source:
-        path: terraform/hello
-        store: bps
+        path: github.com/johnathanvidu/prod-tests.git//terraform/hello
       agent:
         name: '{{.inputs.agent}}'
