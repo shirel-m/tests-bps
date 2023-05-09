@@ -1,0 +1,15 @@
+spec_version: 2
+
+inputs:
+  agent:
+    type: agent
+
+grains:
+  helloTF:
+    kind: terraform
+    spec:
+      source:
+        path: terraform/hello
+        store: bps
+      agent:
+        name: '{{.inputs.agent}}'
