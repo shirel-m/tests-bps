@@ -24,6 +24,9 @@ grains:
         path: terraform/azure_vm_legacy_wi
       agent:
         name: '{{ .inputs.agent }}'
+      env-vars:
+        - HTTP_PROXY: http://asfasfsaf.sfasfs.org:8080
+        - HTTPS_PROXY: http://asfasfsaf.sfasfs.org:8080
       inputs:
         - vm_name: '{{.inputs.vm_name}}'
         - resource_group: '{{.inputs.resource_group}}'
