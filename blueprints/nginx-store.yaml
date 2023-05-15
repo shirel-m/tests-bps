@@ -10,7 +10,7 @@ grains:
     kind: helm
     spec:
       source:
-        store: assets
+        store: bps
         path: helm/nginx
       agent:
         name: '{{ .inputs.host_name }}'
