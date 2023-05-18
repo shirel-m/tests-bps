@@ -27,3 +27,5 @@ right after that do the following (order doesn't matter)
 - goto line 6
 - goto line 1 again
 - goto line 3
+
+test
