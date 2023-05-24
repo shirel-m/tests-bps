@@ -53,3 +53,7 @@ grains:
         - ARM_SUBSCRIPTION_ID: '{{ .inputs.subscription_id }}'
         - ARM_TENANT_ID: '{{ .inputs.tenant_id }}'
         - ARM_CLIENT_ID: '{{ .inputs.client_id }}'
+        - HTTPS_PROXY: asfasfas.com
+        - HTTP_PROXY: asfasfas.com
+        - https_proxy: asfasfas.com
+        - http_proxy: asfasfas.com
