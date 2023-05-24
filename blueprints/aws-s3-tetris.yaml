@@ -25,7 +25,7 @@ grains:
         store: assets
         path: assets/terraform/s3-webapp
       agent:
-        name: '{{ .inputs.host }}'
+        name: '{{ .inputs.agent }}'
       inputs:
       - name: '{{ .inputs.name }}'
       - prefix: '{{ .inputs.prefix }}'
