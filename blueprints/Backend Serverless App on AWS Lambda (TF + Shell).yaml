@@ -8,6 +8,8 @@ inputs:
   API Input:
     type: string
     default: Torque
+  agent:
+    type: agent
 
 outputs:
   Serverless API App URL:
@@ -22,8 +24,8 @@ grains:
         store: bps
         path: terraform/hello-world-lambda
       agent:
-        name: '{{ .params.default_eks_host }}'
-        service-account: '{{ .params.default_eks_host_service_account }}'
+        name: '{{ .inputs.agent }}'
+        # service-account: '{{ .params.default_eks_host_service_account }}'
       inputs:
       - aws_region: '{{ .inputs.["AWS Region"] }}'
       - lambda_bucket_name: torque-lambda-storage
@@ -39,8 +41,8 @@ grains:
     depends-on: Serverless API
     spec:
       agent:
-        name: '{{ .params.default_eks_host }}'
-        service-account: '{{ .params.default_eks_host_service_account }}'
+        name: '{{ .inputs.agent }}'
+        # service-account: '{{ .params.default_eks_host_service_account }}'
       activities:
         deploy:
           commands:
