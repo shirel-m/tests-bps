@@ -8,7 +8,7 @@ module.exports.handler = async (event) => {
     responseMessage = 'This is the API: ' + event.queryStringParameters['Name'] + '!';
   }
 
-  return {e
+  return {
     statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
