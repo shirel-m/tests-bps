@@ -28,7 +28,7 @@ grains:
         # service-account: '{{ .params.default_eks_host_service_account }}'
       inputs:
       - aws_region: '{{ .inputs.["AWS Region"] }}'
-      - lambda_bucket_name: torque-lambda-storage
+      - lambda_bucket_name: torque-lambda-vido
       - lambda_iam_role: torque-lambda-exec
       env-vars: []
       outputs:
