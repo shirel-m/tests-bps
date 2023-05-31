@@ -1,0 +1,32 @@
+spec_version: 2
+description: curl result as input to ansible playbook
+
+inputs:
+  agent:
+    type: agent
+
+grains:
+  tf-curl:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/curl
+      agent:
+        name: '{{ .inputs.agent }}'
+      env-vars: []
+      outputs:
+      - result
+
+  ansible-output:
+    kind: ansible
+    spec:
+      source:
+        store: bps
+        path: ansible/dbg_msg.yaml
+      agent:
+        name: my-torque-agent
+      inventory-file:
+        all:  
+          vars:
+            dbg_msg: {{ .grains.tf-curl.outputs.result }}

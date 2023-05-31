@@ -1,0 +1,6 @@
+- name: inputs from tf grain
+  hosts: localhost
+  tasks:
+  - name: print debug message
+    debug: 
+      msg: "This debug message is from an input: {{ dbg_msg }}"
