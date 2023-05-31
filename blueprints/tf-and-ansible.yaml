@@ -20,6 +20,7 @@ grains:
 
   ansible-output:
     kind: ansible
+    depends-on: tf-curl
     spec:
       source:
         store: bps
