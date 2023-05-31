@@ -25,7 +25,7 @@ grains:
         store: bps
         path: ansible/dbg_msg.yaml
       agent:
-        name: my-torque-agent
+        name: '{{ .inputs.agent }}'
       inventory-file:
         all:  
           vars:
