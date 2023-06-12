@@ -8,6 +8,7 @@ terraform {
     }  
 }
 
+# david's changes
 provider "aws" {
   region = var.aws_region
 }
