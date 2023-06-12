@@ -1,0 +1,18 @@
+spec_version: 2
+description: auto retry
+
+inputs:
+  agent:
+    type: agent
+
+grains:
+  vm1:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/autoretry
+      agent:
+        name: '{{ .inputs.agent }}'
+      tf-version: 1.3.6
+    tf-version: 1.3.6
