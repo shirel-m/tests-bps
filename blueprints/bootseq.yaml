@@ -36,7 +36,7 @@ grains:
       agent:
         name: '{{ .inputs.agent }}'
       inputs:
-      - name: '{{ .inputs.bucket-name }}'2
+      - name: '{{ .inputs.bucket-name }}2'
       - region: '{{ .inputs.["AWS Region"] }}'
       env-vars: []
       outputs:
