@@ -1,0 +1,43 @@
+spec_version: 2
+description: A Hello World JS API Backened app running on AWS Lambda a
+
+inputs:
+  AWS Region:
+    type: string
+    default: eu-west-1
+  bucket-name:
+    type: string
+    default: vido-awesome-bucket
+  agent:
+    type: agent
+
+grains:
+  dc:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/s3-no-tags
+      agent:
+        name: '{{ .inputs.agent }}'
+      inputs:
+      - name: '{{ .inputs.bucket-name }}'
+      - region: '{{ .inputs.["AWS Region"] }}'
+      env-vars: []
+      outputs:
+      - s3_bucket_arn
+
+  the_rest:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/s3
+      agent:
+        name: '{{ .inputs.agent }}'
+      inputs:
+      - name: '{{ .inputs.bucket-name }}'2
+      - region: '{{ .inputs.["AWS Region"] }}'
+      env-vars: []
+      outputs:
+      - s3_bucket_arn
