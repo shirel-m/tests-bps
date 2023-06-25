@@ -1,13 +1,13 @@
 spec_version: 2
-description: A Hello World JS API Backened app running on AWS Lambda a
+description: testing boot sequence
 
 inputs:
-  AWS Region:
+  vm_name:
     type: string
-    default: eu-west-1
-  bucket-name:
+    default: "vidovm"
+  resource_group:
     type: string
-    default: vido-awesome-bucket
+    default: "vido_rg"
   agent:
     type: agent
 
@@ -17,27 +17,27 @@ grains:
     spec:
       source:
         store: bps
-        path: terraform/s3-no-tags
+        path: terraform/azure_vm_legacy_wi_tags
       agent:
         name: '{{ .inputs.agent }}'
       inputs:
-      - name: '{{ .inputs.bucket-name }}'
-      - region: '{{ .inputs.["AWS Region"] }}'
+        - vm_name: '{{.inputs.vm_name}}'
+        - resource_group: '{{.inputs.resource_group}}'
       env-vars: []
       outputs:
-      - s3_bucket_arn
+        - vm_id
 
   the_rest:
     kind: terraform
     spec:
       source:
         store: bps
-        path: terraform/s3
+        path: terraform/azure_vm_legacy_wi
       agent:
         name: '{{ .inputs.agent }}'
       inputs:
-      - name: '{{ .inputs.bucket-name }}2'
-      - region: '{{ .inputs.["AWS Region"] }}'
+        - vm_name: '{{.inputs.vm_name}}'
+        - resource_group: '{{.inputs.resource_group}}2'
       env-vars: []
       outputs:
-      - s3_bucket_arn
+        - vm_id
