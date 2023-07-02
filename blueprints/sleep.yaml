@@ -1,0 +1,21 @@
+spec_version: 2
+description: sleeeeeeeeeeeeeeeeeeeeeeeep
+
+inputs:
+  agent:
+    type: agent
+  sleep_for:
+    type: string
+    default: 420s
+    
+grains:
+  sleeeeeeeep:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/sleep
+      agent:
+        name: '{{ .inputs.agent }}'
+      inputs:
+      - sleep_for: '{{ .inputs.sleep_for }}'
